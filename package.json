@@ -1,0 +1,20 @@
+{
+    "name": "ts-package-repro",
+    "version": "1.0.0",
+    "description": "....",
+    "main": "example.cjs.js",
+    "typings": "src/greeting.d.ts",
+    "author": "Kyle Cordes",
+    "license": "MIT",
+    "devDependencies": {
+        "@bazel/hide-bazel-files": "^1.0.0",
+        "@bazel/rollup": "^1.0.0",
+        "@bazel/typescript": "^1.0.0",
+        "@types/node": "^11.11.3",
+        "prettier": "^1.16.4",
+        "rollup": "^1.27.13",
+        "tslib": "^1.9.3",
+        "typescript": "^3.7.4"
+    },
+    "dependencies": {}
+}

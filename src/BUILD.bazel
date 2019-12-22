@@ -1,0 +1,25 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
+
+# According to the documentation:
+
+# https://bazelbuild.github.io/rules_nodejs/TypeScript.html
+
+# "The resulting .d.ts file paths will be printed. Additionally, the .js outputs
+# from TypeScript will be written to disk, next to the .d.ts files"
+
+# "The default output of the ts_library rule is the .d.ts files"
+
+# As I understand from this, downstream rules referring to this rule should get
+# .d.ts files (only)?
+
+ts_library(
+    name = "src",
+    srcs = glob([
+        "*.ts",
+    ]),
+    deps = [
+        "@npm//@types/node",
+    ],
+)

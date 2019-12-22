@@ -1,0 +1,29 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
+load("@npm_bazel_rollup//:index.bzl", "rollup_bundle")
+
+exports_files(
+    [
+        "tsconfig.json",
+    ],
+)
+
+rollup_bundle(
+    name = "example.cjs",
+    config_file = "rollup.config.js",
+    entry_point = "//src:greeting.ts",
+    format = "cjs",
+    deps = [
+        "//src",
+    ],
+)
+
+pkg_npm(
+    name = "example",
+    srcs = [
+        "package.json",
+    ],
+    deps = [
+        ":example.cjs.js",
+        "//src",  # Just the .d.ts files, right?
+    ],
+)
